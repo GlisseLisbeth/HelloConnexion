@@ -1,0 +1,64 @@
+swagger: "2.0"
+host: "{{host}}"
+info:
+  title: hello
+  version: "1.0"
+
+basePath: /v1.0
+
+definitions:
+  Hello:
+    type: object
+    properties:
+      hello_id:
+        type: string
+      name:
+        type: string
+      time:
+        type: string
+        format: date-time
+    required:
+    - name
+    - time
+
+paths:
+  '/hello':
+    post:
+      parameters:
+        - in: body
+          name: hello
+          required: true
+          schema:
+            $ref: '#/definitions/Hello'
+      responses:
+        '201':
+          description: 'Submitted a Hello'
+    get:
+      parameters:
+        - in: query
+          name: time
+          required: false
+          type: string
+          format: date-time
+      responses:
+        '200':
+          description: 'Fetch a list of Hellos'
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Hello'
+  '/hello/{id}':
+    get:
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: 'Hello'
+          schema:
+            type: object
+            items:
+              $ref: '#/definitions/Hello'
+
