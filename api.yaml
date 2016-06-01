@@ -17,6 +17,7 @@ definitions:
       time:
         type: string
         format: date-time
+        x-rs-sample-value: '2016-06-01T17:57:39.545Z'
     required:
     - name
     - time
@@ -40,6 +41,7 @@ paths:
           required: false
           type: string
           format: date-time
+          x-rs-sample-value: '2016-06-01T17:57:39.545Z'
       responses:
         '200':
           description: 'Fetch a list of Hellos'
