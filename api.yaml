@@ -1,5 +1,5 @@
 swagger: "2.0"
-host: "{{host}}.herokuapp.com"
+host: "{{host}}"
 info:
   title: hello
   version: "1.0"
